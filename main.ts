@@ -1,5 +1,5 @@
 radio.onReceivedString(function (receivedString) {
-    if (receivedString == "LeveGodet") {
+    if (receivedString == receivedString) {
         if (angle > 0 && angle <= 90) {
             angle += -1
         }
@@ -10,11 +10,13 @@ radio.onReceivedString(function (receivedString) {
             maqueen.servoRun(maqueen.Servos.S1, angle)
         }
     } else if (receivedString == "LEDL") {
-    	
+        maqueen.writeLED(maqueen.LED.LEDLeft, maqueen.LEDswitch.turnOn)
     } else if (receivedString == "LEDR") {
-    	
+        maqueen.writeLED(maqueen.LED.LEDRight, maqueen.LEDswitch.turnOn)
     } else {
         maqueen.motorStop(maqueen.Motors.All)
+        maqueen.writeLED(maqueen.LED.LEDRight, maqueen.LEDswitch.turnOff)
+        maqueen.writeLED(maqueen.LED.LEDLeft, maqueen.LEDswitch.turnOff)
     }
 })
 radio.onReceivedValue(function (name, value) {
@@ -31,6 +33,7 @@ radio.onReceivedValue(function (name, value) {
     }
 })
 let angle = 0
+basic.showString("Mbappe")
 radio.setGroup(1)
-angle = 90
+angle = 0
 maqueen.servoRun(maqueen.Servos.S1, angle)
