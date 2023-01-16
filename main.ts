@@ -16,6 +16,7 @@ radio.onReceivedString(function (receivedString) {
     } else {
         maqueen.writeLED(maqueen.LED.LEDLeft, maqueen.LEDswitch.turnOff)
         maqueen.writeLED(maqueen.LED.LEDRight, maqueen.LEDswitch.turnOff)
+        maqueen.motorStop(maqueen.Motors.All)
     }
 })
 radio.onReceivedValue(function (name, value) {
@@ -32,7 +33,7 @@ radio.onReceivedValue(function (name, value) {
     }
 })
 let angle = 0
-basic.showString("Mbappe")
-radio.setGroup(1)
+basic.showString("Messi")
+radio.setGroup(2)
 angle = 45
 maqueen.servoRun(maqueen.Servos.S1, angle)
